@@ -26,10 +26,10 @@ console.log(filtered)
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-function somma(array){
+function somma(){
     let sum = 0
-myRandom().forEach(function(num1) {
-    sum += num1;});
+array.forEach(function(element) {
+    sum += element;});
     return sum;
 }
 console.log(somma())
@@ -58,10 +58,24 @@ console.log(somma1(array))
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+function wordLenght(stringArray){
+  return stringArray.map((element) => element.length)
+}
+console.log(wordLenght())
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+function oddNum (){
+  const oddArrey = [];
+  array.forEach((element) => {
+    if (element % 2 !== 0){
+      oddArrey.push(element)
+    }
+  })
+  return oddArrey
+}
+console.log(oddNum)
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -237,12 +251,23 @@ const movies = [
   /* ESERCIZIO 13 (reduce)
     Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
   */
-  
+  const sumYears = () => {
+    return movies.reduce((total,movie) => total + parseInt(movie.Year) , 0)
+  }
+  console.log(sumYears)
   /* ESERCIZIO 14 (find)
     Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
   */
+ function findMovie(id){
+  return movies.find((element) => element.imdbID === id )
+ }
+ console.log(findMovie())
   
   /* ESERCIZIO 15 (findIndex)
     Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
   */
+ function getMovieByYear(Year){
+  return movies.findIndex((element) => parseInt(element.year) === Year)
+
+ }
   
